@@ -3,6 +3,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+#include <limits.h>
 
 typedef struct s_node
 {
@@ -39,27 +40,34 @@ typedef struct s_bench
  int  rrr;
 } t_bench;
 
-void        ft_putstring(const char *str);
-void        record_op(t_bench *bench, int *op_count);
+void    ft_putstring(const char *str);
+void    record_op(t_bench *bench, int *op_count);
+void    *ft_memcpy(void *dest, const void *src, size_t n);
+char    *ft_strdup(const char *s);
+char    *ft_substr(char const *s, unsigned int start, size_t len);
 
-void        sa(t_stack *a, t_bench *bench);
-void        sb(t_stack *b, t_bench *bench);
-void        ss(t_stack *a, t_stack *b, t_bench *bench);
-void        pa(t_stack *a, t_stack *b, t_bench *bench);
-void        pb(t_stack *a, t_stack *b, t_bench *bench);
-void        ra(t_stack *a, t_bench *bench);
-void        rb(t_stack *b, t_bench *bench);
-void        rr(t_stack *a, t_stack *b, t_bench *bench);
-void        rra(t_stack *a, t_bench *bench);
-void        rrb(t_stack *b, t_bench *bench);
-void        rrr(t_stack *a, t_stack *b, t_bench *bench);
+char    **ft_split(char const *s, char c);
 
-double      compute_disorder(t_stack *a);
-void        sort_complex(t_stack *a, t_stack *b, t_bench *bench);
-void        sort_adaptive(t_stack *a, t_stack *b, t_bench *bench);
+int     stack_append(t_stack *stack, int value);
 
-void        sort_simple(t_stack *a, t_stack *b, t_bench *bench);
-void        sort_medium(t_stack *a, t_stack *b, t_bench *bench);
-void        print_bench(t_bench *bench);
+void    sa(t_stack *a, t_bench *bench);
+void    sb(t_stack *b, t_bench *bench);
+void    ss(t_stack *a, t_stack *b, t_bench *bench);
+void    pa(t_stack *a, t_stack *b, t_bench *bench);
+void    pb(t_stack *a, t_stack *b, t_bench *bench);
+void    ra(t_stack *a, t_bench *bench);
+void    rb(t_stack *b, t_bench *bench);
+void    rr(t_stack *a, t_stack *b, t_bench *bench);
+void    rra(t_stack *a, t_bench *bench);
+void    rrb(t_stack *b, t_bench *bench);
+void    rrr(t_stack *a, t_stack *b, t_bench *bench);
+
+double  compute_disorder(t_stack *a);
+void    sort_complex(t_stack *a, t_stack *b, t_bench *bench);
+void    sort_adaptive(t_stack *a, t_stack *b, t_bench *bench);
+
+void    sort_simple(t_stack *a, t_stack *b, t_bench *bench);
+void    sort_medium(t_stack *a, t_stack *b, t_bench *bench);
+void    print_bench(t_bench *bench);
 
 #endif
