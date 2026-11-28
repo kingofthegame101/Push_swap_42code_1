@@ -64,6 +64,21 @@ void    rra(t_stack *a, t_bench *bench);
 void    rrb(t_stack *b, t_bench *bench);
 void    rrr(t_stack *a, t_stack *b, t_bench *bench);
 
+
+int     stack_append(t_stack *stack, int value);
+
+void    sa(t_stack *a, t_bench *bench);
+void    sb(t_stack *b, t_bench *bench);
+void    ss(t_stack *a, t_stack *b, t_bench *bench);
+void    pa(t_stack *a, t_stack *b, t_bench *bench);
+void    pb(t_stack *a, t_stack *b, t_bench *bench);
+void    ra(t_stack *a, t_bench *bench);
+void    rb(t_stack *b, t_bench *bench);
+void    rr(t_stack *a, t_stack *b, t_bench *bench);
+void    rra(t_stack *a, t_bench *bench);
+void    rrb(t_stack *b, t_bench *bench);
+void    rrr(t_stack *a, t_stack *b, t_bench *bench);
+
 double  compute_disorder(t_stack *a);
 void    sort_complex(t_stack *a, t_stack *b, t_bench *bench);
 void    sort_adaptive(t_stack *a, t_stack *b, t_bench *bench);
