@@ -47,6 +47,23 @@ char    *ft_strdup(const char *s);
 char    *ft_substr(char const *s, unsigned int start, size_t len);
 
 char    **ft_split(char const *s, char c);
+void    free_tokens(char **tokens);
+int     process_tokens(char **tokens, t_stack *stack);
+int     stack_append(t_stack *stack, int value);
+int     parse_args(int argc, char **argv, t_stack *stack);
+
+void    sa(t_stack *a, t_bench *bench);
+void    sb(t_stack *b, t_bench *bench);
+void    ss(t_stack *a, t_stack *b, t_bench *bench);
+void    pa(t_stack *a, t_stack *b, t_bench *bench);
+void    pb(t_stack *a, t_stack *b, t_bench *bench);
+void    ra(t_stack *a, t_bench *bench);
+void    rb(t_stack *b, t_bench *bench);
+void    rr(t_stack *a, t_stack *b, t_bench *bench);
+void    rra(t_stack *a, t_bench *bench);
+void    rrb(t_stack *b, t_bench *bench);
+void    rrr(t_stack *a, t_stack *b, t_bench *bench);
+
 
 int     stack_append(t_stack *stack, int value);
 

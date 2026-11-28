@@ -66,6 +66,45 @@ static int  is_duplicate(t_stack *stack, int value)
     return (0);
 }
 
+// Tokens are the char str provided by the argv, before it is converted into an integer.
+// Freeing is to prevent memory leaks. Free each token[i] (values) before free token
+// to ensure that pointer to each token[i] is not lost before they are freed.
+void free_tokens(char **tokens)
+{
+    int i;
+
+    if (token == NULL)
+        return ;
+    i = 0;
+    while (tokens[i] != NULL)
+    {
+        free(tokens[i]);
+        i++;
+    }
+    free(tokens);
+}
+
+// This function is to return a boolean of whether all the tokens in this argument are
+// (1) valid integers, (2) unique, no duplicates, (3) can it be added to the stack.
+// The while loop refers to a pointer to a char *, hence != NULL
+int process_tokens(char **tokens, t_stack *stack)
+{
+    int i;
+    int nbr;
+
+    i = 0;
+    while (tokens[i] != NULL)
+    {
+        if (parse_int_inputs(tokens[i], &nbr) == 0)
+            return (0);
+        if (is_duplicate(stack, nbr))
+            return (0);
+        if (stack_append(stack, nbr) == 0)
+            return (0);
+        i++;
+    }
+    return (1);
+}
 // Guard checks, malloc and NULL checks. node->value is to fill this node with int value.
 // Since appending to the bottom, the new_node->next set to NULL and connect new_node->prev to stack->bottom
 // If stack->bottom is not NULL, then connect the stack->bottom->next to new_node.
